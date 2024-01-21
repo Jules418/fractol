@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   explorer.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 03:12:38 by jules             #+#    #+#             */
-/*   Updated: 2024/01/20 13:19:36 by jules            ###   ########.fr       */
+/*   Created: 2024/01/21 00:56:31 by jules             #+#    #+#             */
+/*   Updated: 2024/01/21 01:16:28 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLORS_H
-# define COLORS_H
+#ifndef EXPLORER_H
+# define EXPLORER_H
 
-# define RGB(r, g, b) (((r) << 16) | ((g) << 8) | (b))
+# include "fractol.h"
 
-int	compute_color_bnw(int n, int max_iter);
-
+void	select_hotspot(int keycode, t_fractol *fractol);
 
 #endif

@@ -7,18 +7,14 @@ OBJS				=	$(patsubst %.c, $(DIR_BUILD)%.o, $(SRCS))
 OBJS_TEST			=	$(patsubst %.c, $(DIR_BUILD)%.o, $(TEST))
 DEPS				=	$(patsubst %.c, $(DIR_BUILD)%.d, $(SRCS))
 DEPS_FLAGS			=	-MMD -MP
-BASE_CFLAGS			=	-pipe -O3
+BASE_CFLAGS			=	-Wall -Werror -Wextra -O2 -pipe
 BASE_DEBUG_CFLAGS	=	-g3
-DEBUG_CLFAGS		=	$(BASE_DEBUG_CFLAGS) -fsanitize=address
+DEBUG_CLFAGS		=	$(BASE_DEBUG_CFLAGS) #-fsanitize=address
 # DEBUG_CLFAGS		=	$(BASE_DEBUG_CFLAGS) -fsanitize=memory -fsanitize-memory-track-origins
-# FLAGS				=	$(BASE_CFLAGS) -g3
-# FLAGS				=	$(BASE_CFLAGS) -g3
-# FLAGS				=	$(BASE_CFLAGS) $(BASE_DEBUG_CFLAGS)
 FLAGS				=	$(BASE_CFLAGS)
-# FLAGS			=	$(BASE_CFLAGS) $(DEBUG_CLFAGS)
-# FLAGS				=	$(BASE_CFLAGS) $(DEBUG_CLFAGS)
 RM					=	rm -rf
 AR					=	ar rcs
+CC					=	cc
 
 MINILIBX_PATH		=	minilibx/
 MINILIBX_INCLUDES	=	$(MINILIBX_PATH)
@@ -33,7 +29,6 @@ INCLUDES =\
 	$(addprefix -I , $(DIR_INCS))
 
 LIBS = \
-	-lm	\
 	$(MINILIBX_L)	\
 	-lXext	\
 	-lX11
