@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:34:17 by jules             #+#    #+#             */
-/*   Updated: 2024/01/21 02:05:38 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/21 16:14:39 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 # include <stdlib.h>
 # include "complex_number.h"
 # include "colors.h"
-
-# define WIDTH 800
-# define HEIGHT 600
 
 # define ZOOM_MULT 2.
 
@@ -47,6 +44,15 @@ typedef struct	s_params
 }				t_params;
 
 typedef int (	*t_fract_func)(t_complex, t_params);
+
+typedef	struct s_args
+{
+	int				height;
+	int				width;
+	t_fract_func	fract_func;
+	char			fract_code;
+	t_complex		julia_seed;
+}				t_args;
 
 typedef struct s_fractol
 {

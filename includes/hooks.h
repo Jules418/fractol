@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:05:39 by jules             #+#    #+#             */
-/*   Updated: 2024/01/21 01:49:46 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 14:57:34 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define F4 65473
 # define ENTER 65293
 
-int		close(t_fractol *fractol);
+int		close_fractol(t_fractol *fractol);
 int		draw_loop(t_fractol *fractol);
 void	rescale(int button, int x, int y, t_fractol *fractol);
 int		mouse_hook(int button, int x, int y, t_fractol *fractol);

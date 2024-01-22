@@ -6,13 +6,13 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:06:21 by jules             #+#    #+#             */
-/*   Updated: 2024/01/21 02:07:57 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 14:57:13 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hooks.h"
 
-int	close(t_fractol *fractol)
+int	close_fractol(t_fractol *fractol)
 {
 	mlx_destroy_image(fractol->mlx, fractol->img.img);
 	mlx_destroy_window(fractol->mlx, fractol->mlx_win);

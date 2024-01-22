@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:08:53 by jules             #+#    #+#             */
-/*   Updated: 2024/01/21 02:04:31 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 14:57:03 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void	change_max_iter(int keycode, t_fractol *fractol){
 	fractol->params.max_iter += ((keycode == 'd') * 2 - 1) * 50;
 	if (fractol->params.max_iter < 20)
 		fractol->params.max_iter = 20;
-	if (fractol->params.max_iter > 1500)
-		fractol->params.max_iter = 1500;
 }
 
 void	change_fractale(t_fractol *fractol)
@@ -69,7 +67,7 @@ void	change_fractale(t_fractol *fractol)
 int	key_handler(int keycode, t_fractol *fractol)
 {
 	if (keycode == ESC)
-		close(fractol);
+		close_fractol(fractol);
 	if (((LEFT_ARROW - 1) < keycode) && (keycode < (DOWN_ARROW + 1)))
 		move_center(keycode, fractol);
 	if (keycode == 'w')
