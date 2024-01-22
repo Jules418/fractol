@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/21 17:20:21 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 14:58:40 by jules            ###   ########.fr       */
+/*   Created: 2024/01/22 19:08:41 by jules             #+#    #+#             */
+/*   Updated: 2024/01/22 19:09:26 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERRORS_H
 # define ERRORS_H
 
-# include <unistd.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 void	exit_with_error(void);
 

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/21 17:17:12 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 14:53:46 by jules            ###   ########.fr       */
+/*   Created: 2024/01/22 19:26:40 by jules             #+#    #+#             */
+/*   Updated: 2024/01/22 19:38:08 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#ifndef UTILS_H
+# define UTILS_H
 
-# include "fractol.h"
-# include "errors.h"
+# include <stddef.h> 
 
-t_args	parse_args(int argc, char **argv);
+int		ft_atoi(char *s);
+double	ft_atod(char *s);
 
 #endif

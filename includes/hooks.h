@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:05:39 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 14:57:34 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 20:17:51 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define HOOKS_H
 
 # include "fractol.h"
+# include "fractal_management.h"
+# include <stdlib.h>
+# include <math.h>
 
 # define ESC 65307
 # define UP_ARROW 65362
@@ -27,8 +30,15 @@
 # define ENTER 65293
 
 int		close_fractol(t_fractol *fractol);
-int		draw_loop(t_fractol *fractol);
 void	rescale(int button, int x, int y, t_fractol *fractol);
+void	set_julia_seed(int x, int y, t_fractol *fractol);
+void	move_julia_seed(int keycode, t_fractol *fractol);
+
+void	move_center(int keycode, t_fractol *fractol);
+void	change_max_iter(int keycode, t_fractol *fractol);
+void	change_fractale(t_fractol *fractol);
+void	select_hotspot(int keycode, t_fractol *fractol);
+
 int		mouse_hook(int button, int x, int y, t_fractol *fractol);
 int		key_handler(int keycode, t_fractol *fractol);
 

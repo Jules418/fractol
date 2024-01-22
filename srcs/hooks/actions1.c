@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooks.c                                            :+:      :+:    :+:   */
+/*   actions1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 23:06:21 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 15:50:18 by jules            ###   ########.fr       */
+/*   Created: 2024/01/22 19:59:13 by jules             #+#    #+#             */
+/*   Updated: 2024/01/22 20:38:36 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	close_fractol(t_fractol *fractol)
 	return (0);
 }
 
-t_complex	get_mouse_wp(int x, int y, t_fractol *fractol)
+t_complex	get_world_pos(int x, int y, t_fractol *fractol)
 {
 	t_complex	s_center;
 	t_complex	v_center;
@@ -36,42 +36,48 @@ t_complex	get_mouse_wp(int x, int y, t_fractol *fractol)
 
 void	rescale(int button, int x, int y, t_fractol *fractol)
 {
-	t_complex	s_center;
+	t_complex	mouse;
 	t_complex	v_center;
-	t_complex	p_mouse;
 	double		new_z;
 
-	s_center = (t_complex){(double) fractol->params.s_width / 2., \
-			(double) fractol->params.s_height / 2.};
+	mouse = get_world_pos(x, y, fractol);
 	v_center = fractol->params.v_center;
-	p_mouse = (t_complex){(double) x, (double) y};
 	if (button == 4)
 	{
 		new_z = fractol->params.zoom_f * ZOOM_MULT;
-		if (new_z > 2000000000000000.)
-			new_z = 2000000000000000.;
+		if (isinf(new_z))
+			return ;
 		fractol->params.v_center = add(v_center, \
-			mult_scal(1. / fractol->params.zoom_f, sub(p_mouse, s_center)));
+			mult_scal(1. / ZOOM_MULT, sub(mouse, v_center)));
 	}
 	else
 	{
 		new_z = fractol->params.zoom_f / ZOOM_MULT;
+		if (new_z == 0.)
+			return ;
 		fractol->params.v_center = add(v_center, \
-			mult_scal(1. / new_z, sub(s_center, p_mouse)));
+			mult_scal(1., sub(v_center, mouse)));
 	}
 	fractol->params.zoom_f = new_z;
 }
 
 void	set_julia_seed(int x, int y, t_fractol *fractol)
 {
-	fractol->params.julia_seed = get_mouse_wp(x, y, fractol);
+	fractol->params.julia_seed = get_world_pos(x, y, fractol);
 }
 
-int	mouse_hook(int button, int x, int y, t_fractol *fractol)
+void	move_julia_seed(int keycode, t_fractol *fractol)
 {
-	if ((button == 4) || (button == 5))
-		rescale(button, x, y, fractol);
-	if ((button == 1) && (fractol->fract_code == 'j'))
-		set_julia_seed(x, y, fractol);
-	return (0);
+	t_complex	displacement;
+
+	if (keycode == 'o')
+		displacement = (t_complex){0, -50};
+	if (keycode == 'k')
+		displacement = (t_complex){-50, 0};
+	if (keycode == 'l')
+		displacement = (t_complex){0, 50};
+	if (keycode == 'm')
+		displacement = (t_complex){50, 0};
+	fractol->params.julia_seed = add(fractol->params.julia_seed, \
+			mult_scal(2. / fractol->params.zoom_f, displacement));
 }

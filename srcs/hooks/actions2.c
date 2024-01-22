@@ -1,32 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyboard_hooks.c                                   :+:      :+:    :+:   */
+/*   actions2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:08:53 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 15:50:44 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 20:01:25 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hooks.h"
-
-void	move_julia_seed(int keycode, t_fractol *fractol)
-{
-	t_complex	displacement;
-
-	if (keycode == 'o')
-		displacement = (t_complex){0, -50};
-	if (keycode == 'k')
-		displacement = (t_complex){-50, 0};
-	if (keycode == 'l')
-		displacement = (t_complex){0, 50};
-	if (keycode == 'm')
-		displacement = (t_complex){50, 0};
-	fractol->params.julia_seed = add(fractol->params.julia_seed, \
-			mult_scal(2. / fractol->params.zoom_f, displacement));
-}
 
 void	move_center(int keycode, t_fractol *fractol)
 {
@@ -65,25 +49,14 @@ void	change_fractale(t_fractol *fractol)
 	}
 }
 
-int	key_handler(int keycode, t_fractol *fractol)
+void	select_hotspot(int keycode, t_fractol *fractol)
 {
-	if (keycode == ESC)
-		close_fractol(fractol);
-	if (((LEFT_ARROW - 1) < keycode) && (keycode < (DOWN_ARROW + 1)))
-		move_center(keycode, fractol);
-	if (keycode == 'w')
-		rescale(4, fractol->params.s_width / 2, \
-				fractol->params.s_height / 2, fractol);
-	if (keycode == 's')
-		rescale(5, fractol->params.s_width / 2, \
-				fractol->params.s_height / 2, fractol);
-	if ((keycode == 'a') || (keycode == 'd'))
-		change_max_iter(keycode, fractol);
-	if ((106 < keycode) && (keycode < 112) && (keycode != 110))
-		move_julia_seed(keycode, fractol);
-	if (((F1 - 1) < keycode) && (keycode < (F4 + 1)))
-		select_hotspot(keycode, fractol);
-	if (keycode == ENTER)
-		change_fractale(fractol);
-	return (0);
+	if (keycode == F1)
+		set_home(fractol);
+	if (keycode == F2)
+		set_julia_island(fractol);
+	if (keycode == F3)
+		set_sun(fractol);
+	if (keycode == F4)
+		set_tendrils(fractol);
 }

@@ -6,11 +6,11 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 00:56:38 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 15:52:31 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 19:36:18 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "explorer.h"
+#include "fractal_management.h"
 
 void	set_home(t_fractol *fractol)
 {
@@ -38,16 +38,4 @@ void	set_tendrils(t_fractol *fractol)
 	fractol->params.v_center = (t_complex){-0.226266648, 1.11617444};
 	fractol->params.zoom_f = 743786806.;
 	fractol->params.max_iter = 600;
-}
-
-void	select_hotspot(int keycode, t_fractol *fractol)
-{
-	if (keycode == F1)
-		set_home(fractol);
-	if (keycode == F2)
-		set_julia_island(fractol);
-	if (keycode == F3)
-		set_sun(fractol);
-	if (keycode == F4)
-		set_tendrils(fractol);
 }

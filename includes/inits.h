@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   explorer.h                                         :+:      :+:    :+:   */
+/*   inits.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/21 00:56:31 by jules             #+#    #+#             */
-/*   Updated: 2024/01/21 01:16:28 by jules            ###   ########.fr       */
+/*   Created: 2024/01/22 19:22:05 by jules             #+#    #+#             */
+/*   Updated: 2024/01/22 19:29:32 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXPLORER_H
-# define EXPLORER_H
+#ifndef INITS_H
+# define INITS_H
 
 # include "fractol.h"
+# include "errors.h"
+# include "fractal_management.h"
+# include "utils.h"
 
-void	select_hotspot(int keycode, t_fractol *fractol);
+t_fractol	init_fractol(int argc, char **argv);
 
 #endif

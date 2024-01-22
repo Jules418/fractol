@@ -6,12 +6,54 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 17:38:15 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 14:50:54 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 19:46:44 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
-#include "parsing.h"
+#include "inits.h"
+
+t_fract_func	find_func(char c)
+{
+	if (c == 'm')
+		return (compute_mandelbrot);
+	if (c == 'j')
+		return (compute_julia);
+	return (NULL);
+}
+
+void	assign_w_h(t_args *args, char **argv, int i)
+{
+	args->width = ft_atoi(argv[i++]);
+	args->height = ft_atoi(argv[i++]);
+	if ((args->width < 1) || (args->height < 1))
+		exit_with_error();
+}
+
+t_args	parse_args(int argc, char **argv)
+{
+	t_args	args;
+	int		i;
+
+	if ((argc != 2) && (argc != 4) && (argc != 6))
+		exit_with_error();
+	args.height = 600;
+	args.width = 800;
+	args.julia_seed = (t_complex){-1.34228188, 0.};
+	args.fract_code = argv[1][0];
+	args.fract_func = find_func(args.fract_code);
+	if ((!args.fract_func) || argv[1][1])
+		exit_with_error();
+	i = 2;
+	if ((args.fract_code == 'm') && (argc > 4))
+		exit_with_error();
+	if ((args.fract_code == 'j') && (argc <= 3))
+		exit_with_error();
+	if ((args.fract_code == 'j') && (argc >= 4))
+		args.julia_seed = (t_complex){ft_atod(argv[i++]), ft_atod(argv[i++])};
+	if (argc > i + 1)
+		assign_w_h(&args, argv, i);
+	return (args);
+}
 
 t_params	init_params(t_args as)
 {

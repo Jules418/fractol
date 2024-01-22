@@ -30,6 +30,7 @@ INCLUDES =\
 
 LIBS = \
 	$(MINILIBX_L)	\
+	-lm \
 	-lXext	\
 	-lX11
 

@@ -1,20 +1,23 @@
 SRCS= 			main.c \
 				$(COMPLEX_SRCS) \
-				$(FRACTAL_SRCS) \
+				$(FRACTAL_MANAGEMENT_SRCS) \
 				$(INITIALIZER_SRCS) \
 				$(HOOKS_SRCS) \
-				$(ERRORS_SRCS)
+				$(ERRORS_SRCS) \
+				$(UTILS_SRCS)
 
 COMPLEX_SRCS = complex/complex_operators.c
 
-FRACTAL_SRCS = fractal_management/draw_fractals.c \
+ERRORS_SRCS = errors/errors.c
+
+FRACTAL_MANAGEMENT_SRCS = fractal_management/draw_fractals.c \
 				fractal_management/colors.c \
 				fractal_management/mandelbrot_explorer.c
 
-INITIALIZER_SRCS = inits/initializer.c \
-					inits/parsing.c
+INITIALIZER_SRCS = inits/initializer.c
 
-HOOKS_SRCS = hooks/hooks.c \
-				hooks/keyboard_hooks.c
+HOOKS_SRCS = hooks/hook_functions.c \
+				hooks/actions1.c \
+				hooks/actions2.c
 
-ERRORS_SRCS = errors/errors.c
+UTILS_SRCS = utils/utils.c

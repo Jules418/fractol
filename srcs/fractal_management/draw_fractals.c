@@ -6,11 +6,11 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 03:06:06 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 15:52:43 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 19:36:10 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractal_management.h"
 
 int	compute_mandelbrot(t_complex c, t_params p)
 {

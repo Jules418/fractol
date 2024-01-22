@@ -6,11 +6,14 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 00:50:53 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 14:57:21 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 20:01:20 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include "fractal_management.h"
+#include "inits.h"
+#include "hooks.h"
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -33,10 +36,10 @@ int	main(int argc, char **argv)
 	t_fractol	fractol;
 
 	fractol = init_fractol(argc, argv);
-	mlx_loop_hook(fractol.mlx, draw_loop, &fractol);
 	mlx_hook(fractol.mlx_win, 17, 1L << 0, close_fractol, &fractol);
 	mlx_mouse_hook(fractol.mlx_win, mouse_hook, &fractol);
 	mlx_hook(fractol.mlx_win, 2, 1L << 0, key_handler, &fractol);
+	mlx_loop_hook(fractol.mlx, draw_loop, &fractol);
 	mlx_loop(fractol.mlx);
 	return (0);
 }
