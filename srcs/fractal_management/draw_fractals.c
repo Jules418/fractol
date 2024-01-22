@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 03:06:06 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 19:36:10 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 20:59:08 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,25 @@ int	compute_julia(t_complex z0, t_params p)
 	while (i < p.max_iter)
 	{
 		z = add(mult(z, z), p.julia_seed);
+		if (norme2(z) > 4.)
+			break ;
+		i++;
+	}
+	return (i);
+}
+
+int	compute_tricorn(t_complex c, t_params p)
+{
+	t_complex	z;
+	t_complex	z_conjugate;
+	int			i;
+
+	i = 0;
+	z = (t_complex){0., 0.};
+	while (i < p.max_iter)
+	{
+		z_conjugate = conjugate(z);
+		z = add(mult(z_conjugate, z_conjugate), c);
 		if (norme2(z) > 4.)
 			break ;
 		i++;

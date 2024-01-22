@@ -6,30 +6,24 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:19:34 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 19:30:48 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 21:08:44 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "errors.h"
+#include "utils.h"
 
 void	exit_with_error(void)
 {
+	char	*error_message;
+
+	error_message = "Your arguments need to be like this !\n\t./fractol \
+<fract> [width height]\n\n\t<fract> can be :\n\t\tm \
+: mandelbrot set\n\t\tj : julia set\n\t\tt : tricorn (Mandelbar) fractal\n\n\
+\tNote that if you want the julia set, you MUST give \
+2 numbers x and y\n\t\tto use for a seed (x y -> \
+x + iy)\n\n\t[width height] are two optionnal numbers\n\
+\t\tto specify the size of the window (800 600 by default)\n";
+	ft_putstr(error_message);
 	exit(EXIT_FAILURE);
 }
-
-/*
-Your arguments need to be like this !
-	./fractol <fract> [width height]
-
-
-	<fract> can be :
-		m : mandelbrot set\
-		j : julia set\n
-		n : newton fractal\n
-	
-	Note that if you want the julia set, you MUST give 2 numbers x and y
-		to use for a seed (x y -> x + iy)
-		
-	[width height] are two optionnal numbers
-		to specify the size of the window (800 600 by default)
-*/

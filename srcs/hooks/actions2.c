@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:08:53 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 20:01:25 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 21:07:56 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ void	change_fractale(t_fractol *fractol)
 	{
 		fractol->fract_code = 'j';
 		fractol->fract_func = compute_julia;
+	}
+	else if (fractol->fract_code == 'j')
+	{
+		fractol->fract_code = 't';
+		fractol->fract_func = compute_tricorn;
 	}
 	else
 	{

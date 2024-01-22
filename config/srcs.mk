@@ -6,7 +6,8 @@ SRCS= 			main.c \
 				$(ERRORS_SRCS) \
 				$(UTILS_SRCS)
 
-COMPLEX_SRCS = complex/complex_operators.c
+COMPLEX_SRCS = complex/complex_operators.c \
+				complex/conjugate.c
 
 ERRORS_SRCS = errors/errors.c
 

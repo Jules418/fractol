@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 17:38:15 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 19:46:44 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 21:01:49 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_fract_func	find_func(char c)
 		return (compute_mandelbrot);
 	if (c == 'j')
 		return (compute_julia);
+	if (c == 't')
+		return (compute_tricorn);
 	return (NULL);
 }
 
@@ -44,7 +46,7 @@ t_args	parse_args(int argc, char **argv)
 	if ((!args.fract_func) || argv[1][1])
 		exit_with_error();
 	i = 2;
-	if ((args.fract_code == 'm') && (argc > 4))
+	if ((args.fract_code != 'j') && (argc > 4))
 		exit_with_error();
 	if ((args.fract_code == 'j') && (argc <= 3))
 		exit_with_error();

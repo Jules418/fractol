@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:34:17 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 20:37:39 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 21:02:26 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <mlx.h>
 # include "complex_number.h"
 
-# define ZOOM_MULT 1.2
+# define ZOOM_MULT 2.
 
 typedef int (	*t_color_func)(int, int);
 

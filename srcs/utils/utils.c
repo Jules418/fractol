@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:25:33 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 19:25:50 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 21:08:25 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,14 @@ double	ft_atod(char *s)
 	while (j--)
 		number = number / 10.;
 	return (sign * number);
+}
+
+int	ft_putstr(char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (write(1, s, i));
 }

@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:39:34 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 19:43:49 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 20:55:05 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_complex
 	double	im;
 }				t_complex;
 
+t_complex	conjugate(t_complex z);
 t_complex	add(t_complex a, t_complex b);
 t_complex	sub(t_complex a, t_complex b);
 t_complex	mult(t_complex a, t_complex b);
