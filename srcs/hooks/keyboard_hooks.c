@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:08:53 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 14:57:03 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 15:50:44 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void	move_center(int keycode, t_fractol *fractol)
 			mult_scal(2. / fractol->params.zoom_f, displacement));
 }
 
-void	change_max_iter(int keycode, t_fractol *fractol){
+void	change_max_iter(int keycode, t_fractol *fractol)
+{
 	fractol->params.max_iter += ((keycode == 'd') * 2 - 1) * 50;
 	if (fractol->params.max_iter < 20)
 		fractol->params.max_iter = 20;

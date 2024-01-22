@@ -6,16 +6,11 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:09:38 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 14:53:41 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 16:00:10 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
-
-int	is_digit(char c)
-{
-	return (('0' <= c) && (c <= '9'));
-}
+#include "parsing.h"	
 
 int	ft_atoi(char *s)
 {
@@ -26,7 +21,7 @@ int	ft_atoi(char *s)
 	i = 0;
 	while (s[i])
 	{
-		if (!is_digit(s[i]))
+		if (!(('0' <= s[i]) && (s[i] <= '9')))
 			return (0);
 		number = number * 10 + (s[i] - '0');
 		i++;
@@ -45,24 +40,24 @@ double	ft_atod(char *s)
 	j = 0;
 	number = 0.;
 	sign = 1.;
-	if ((s[0] == '-') && (i++))
+	if ((s[0] == '-') && (++i))
 		sign *= -1;
-	while (s[i] && is_digit(s[i]))
+	while (s[i] && (('0' <= s[i]) && (s[i] <= '9')))
 		number = number * 10. + (double)(s[i++] - '0');
 	if (s[i] && (s[i++] != '.'))
 		return (0.);
-	while (s[i + j] && is_digit(s[i + j]))
+	while (s[i + j] && (('0' <= s[i + j]) && (s[i + j] <= '9')))
 		number = number * 10. + (double)(s[i + (j++)] - '0');
 	while (j--)
 		number = number / 10.;
-	return (sign*number);
+	return (sign * number);
 }
 
 t_fract_func	find_func(char c)
 {
-	if	(c == 'm')
+	if (c == 'm')
 		return (compute_mandelbrot);
-	if	(c == 'j')
+	if (c == 'j')
 		return (compute_julia);
 	return (NULL);
 }

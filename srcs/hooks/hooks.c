@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:06:21 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 14:57:13 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 15:50:18 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ t_complex	get_mouse_wp(int x, int y, t_fractol *fractol)
 			(double) fractol->params.s_height / 2.};
 	v_center = fractol->params.v_center;
 	p_mouse = (t_complex){(double) x, (double) y};
-
 	return (add(v_center, \
 			mult_scal(2. / fractol->params.zoom_f, sub(p_mouse, s_center))));
 }
@@ -65,7 +64,6 @@ void	rescale(int button, int x, int y, t_fractol *fractol)
 
 void	set_julia_seed(int x, int y, t_fractol *fractol)
 {
-	
 	fractol->params.julia_seed = get_mouse_wp(x, y, fractol);
 }
 

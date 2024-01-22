@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 03:06:06 by jules             #+#    #+#             */
-/*   Updated: 2024/01/21 01:47:33 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 15:52:43 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	compute_julia(t_complex z0, t_params p)
 	{
 		z = add(mult(z, z), p.julia_seed);
 		if (norme2(z) > 4.)
-			break;
+			break ;
 		i++;
 	}
 	return (i);

@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 00:56:38 by jules             #+#    #+#             */
-/*   Updated: 2024/01/21 16:26:56 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/22 15:52:31 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	set_tendrils(t_fractol *fractol)
 {
 	fractol->params.v_center = (t_complex){-0.226266648, 1.11617444};
 	fractol->params.zoom_f = 743786806.;
-	fractol->params.max_iter = 600;	
+	fractol->params.max_iter = 600;
 }
 
 void	select_hotspot(int keycode, t_fractol *fractol)
