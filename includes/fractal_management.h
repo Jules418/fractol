@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:10:09 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 20:59:29 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/23 06:39:03 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 
 // ------- colors.c -------
 int		rgb(int r, int g, int b);
-int		compute_color_bnw(int n, int max_iter);
+int		compute_color(int n, t_fractol *fractol);
 
 // ------- draw_fractals.c -------
-int		compute_mandelbrot(t_complex c, t_params p);
-int		compute_julia(t_complex z0, t_params p);
-int		compute_tricorn(t_complex c, t_params p);
+int		compute_mandelbrot(t_complex c, t_params *p);
+int		compute_julia(t_complex z0, t_params *p);
+int		compute_tricorn(t_complex c, t_params *p);
 void	create_fractal(t_fractol *frctl);
 
 // ------- mandelbrot_explorer.c -------

@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 17:38:15 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 21:01:49 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/23 07:10:24 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ t_params	init_params(t_args as)
 	params.v_center = (t_complex){-1.01228188, 0.};
 	params.zoom_f = 300.;
 	params.max_iter = 255;
-	params.color_func = compute_color_bnw;
 	params.julia_seed = as.julia_seed;
 	return (params);
 }
@@ -88,5 +87,6 @@ t_fractol	init_fractol(int argc, char **argv)
 	frctl.params = init_params(as);
 	frctl.fract_func = as.fract_func;
 	frctl.fract_code = as.fract_code;
+	frctl.nb_frame_mod360 = 0;
 	return (frctl);
 }

@@ -6,7 +6,7 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:34:17 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 21:02:26 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/23 07:09:12 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <mlx.h>
 # include "complex_number.h"
+# include <stdlib.h>
 
 # define ZOOM_MULT 2.
 
@@ -36,11 +37,10 @@ typedef struct s_params
 	t_complex		v_center;
 	double			zoom_f;
 	int				max_iter;
-	t_color_func	color_func;
 	t_complex		julia_seed;
 }				t_params;
 
-typedef int (	*t_fract_func)(t_complex, t_params);
+typedef int (	*t_fract_func)(t_complex, t_params*);
 
 typedef struct s_args
 {
@@ -57,6 +57,7 @@ typedef struct s_fractol
 	void			*mlx_win;
 	t_data			img;
 	int				is_img;
+	size_t			nb_frame_mod360;
 	t_params		params;
 	t_fract_func	fract_func;
 	char			fract_code;

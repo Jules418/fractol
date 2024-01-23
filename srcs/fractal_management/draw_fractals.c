@@ -6,20 +6,20 @@
 /*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 03:06:06 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 20:59:08 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/23 06:39:09 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal_management.h"
 
-int	compute_mandelbrot(t_complex c, t_params p)
+int	compute_mandelbrot(t_complex c, t_params *p)
 {
 	t_complex	z;
 	int			i;
 
 	i = 0;
 	z = (t_complex){0., 0.};
-	while (i < p.max_iter)
+	while (i < p->max_iter)
 	{
 		z = add(mult(z, z), c);
 		if (norme2(z) > 4.)
@@ -29,16 +29,16 @@ int	compute_mandelbrot(t_complex c, t_params p)
 	return (i);
 }
 
-int	compute_julia(t_complex z0, t_params p)
+int	compute_julia(t_complex z0, t_params *p)
 {
 	t_complex	z;
 	int			i;
 
 	i = 0;
 	z = z0;
-	while (i < p.max_iter)
+	while (i < p->max_iter)
 	{
-		z = add(mult(z, z), p.julia_seed);
+		z = add(mult(z, z), p->julia_seed);
 		if (norme2(z) > 4.)
 			break ;
 		i++;
@@ -46,7 +46,7 @@ int	compute_julia(t_complex z0, t_params p)
 	return (i);
 }
 
-int	compute_tricorn(t_complex c, t_params p)
+int	compute_tricorn(t_complex c, t_params *p)
 {
 	t_complex	z;
 	t_complex	z_conjugate;
@@ -54,7 +54,7 @@ int	compute_tricorn(t_complex c, t_params p)
 
 	i = 0;
 	z = (t_complex){0., 0.};
-	while (i < p.max_iter)
+	while (i < p->max_iter)
 	{
 		z_conjugate = conjugate(z);
 		z = add(mult(z_conjugate, z_conjugate), c);
@@ -84,9 +84,9 @@ void	create_fractal(t_fractol *frctl)
 			z = (t_complex){x, y};
 			z = add(frctl->params.v_center, \
 					mult_scal(2. / frctl->params.zoom_f, sub(z, screen_c)));
-			nb_iter = frctl->fract_func(z, frctl->params);
+			nb_iter = frctl->fract_func(z, &frctl->params);
 			my_mlx_pixel_put(&frctl->img, x, y, \
-				frctl->params.color_func(nb_iter, frctl->params.max_iter));
+				compute_color(nb_iter, frctl));
 			y += 1.;
 		}
 		x += 1.;
