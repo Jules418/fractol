@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_management.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbanacze <jbanacze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:10:09 by jules             #+#    #+#             */
-/*   Updated: 2024/01/23 06:39:03 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/23 08:40:20 by jbanacze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FRACTAL_MANAGEMENT_H
 
 # include "fractol.h"
+# include <math.h>
 
 // ------- colors.c -------
 int		rgb(int r, int g, int b);

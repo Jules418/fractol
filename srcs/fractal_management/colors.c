@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbanacze <jbanacze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 03:10:52 by jules             #+#    #+#             */
-/*   Updated: 2024/01/23 07:10:01 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/23 08:47:29 by jbanacze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal_management.h"
-#include <math.h>
 
 int	rgb(int r, int g, int b)
 {
@@ -23,7 +22,6 @@ int	hue_to_rgb(int h)
 	float	x;
 
 	x = 1.f - fabs((fmodf((float)h / 60.f, 2.f) - 1.f));
-
 	if ((0 <= h) && (h < 60))
 		return (rgb(255, 255 * x, 0));
 	if ((60 <= h) && (h < 120))

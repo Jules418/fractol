@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbanacze <jbanacze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:57:05 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 19:58:01 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/23 08:39:25 by jbanacze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	key_handler(int keycode, t_fractol *fractol)
 				fractol->params.s_height / 2, fractol);
 	if ((keycode == 'a') || (keycode == 'd'))
 		change_max_iter(keycode, fractol);
-	if ((106 < keycode) && (keycode < 112) && (keycode != 110))
+	if (('i' <= keycode) && (keycode <= 'l'))
 		move_julia_seed(keycode, fractol);
 	if (((F1 - 1) < keycode) && (keycode < (F4 + 1)))
 		select_hotspot(keycode, fractol);

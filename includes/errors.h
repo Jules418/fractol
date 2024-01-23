@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbanacze <jbanacze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:08:41 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 20:47:54 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/23 08:39:48 by jbanacze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ERRORS_H
 
 # include <stdlib.h>
+# include "utils.h"
 
 void	exit_with_error(void);
 

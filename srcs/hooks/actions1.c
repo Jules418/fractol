@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbanacze <jbanacze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:59:13 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 20:38:36 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/23 08:38:42 by jbanacze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ void	move_julia_seed(int keycode, t_fractol *fractol)
 {
 	t_complex	displacement;
 
-	if (keycode == 'o')
+	if (keycode == 'i')
 		displacement = (t_complex){0, -50};
-	if (keycode == 'k')
+	if (keycode == 'j')
 		displacement = (t_complex){-50, 0};
-	if (keycode == 'l')
+	if (keycode == 'k')
 		displacement = (t_complex){0, 50};
-	if (keycode == 'm')
+	if (keycode == 'l')
 		displacement = (t_complex){50, 0};
 	fractol->params.julia_seed = add(fractol->params.julia_seed, \
 			mult_scal(2. / fractol->params.zoom_f, displacement));

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initializer.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbanacze <jbanacze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 17:38:15 by jules             #+#    #+#             */
-/*   Updated: 2024/01/23 07:10:24 by jules            ###   ########.fr       */
+/*   Updated: 2024/01/23 08:44:47 by jbanacze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_fract_func	find_func(char c)
 void	assign_w_h(t_args *args, char **argv, int i)
 {
 	args->width = ft_atoi(argv[i++]);
-	args->height = ft_atoi(argv[i++]);
+	args->height = ft_atoi(argv[i]);
 	if ((args->width < 1) || (args->height < 1))
 		exit_with_error();
 }
@@ -51,7 +51,10 @@ t_args	parse_args(int argc, char **argv)
 	if ((args.fract_code == 'j') && (argc <= 3))
 		exit_with_error();
 	if ((args.fract_code == 'j') && (argc >= 4))
-		args.julia_seed = (t_complex){ft_atod(argv[i++]), ft_atod(argv[i++])};
+	{
+		args.julia_seed = (t_complex){ft_atod(argv[i]), ft_atod(argv[i + 1])};
+		i += 2;
+	}
 	if (argc > i + 1)
 		assign_w_h(&args, argv, i);
 	return (args);
