@@ -16,6 +16,8 @@ int	close_fractol(t_fractol *fractol)
 {
 	mlx_destroy_image(fractol->mlx, fractol->img.img);
 	mlx_destroy_window(fractol->mlx, fractol->mlx_win);
+	mlx_destroy_display(fractol->mlx);
+	free(fractol->mlx);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
