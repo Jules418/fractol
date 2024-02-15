@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_fractals.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbanacze <jbanacze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 03:06:06 by jules             #+#    #+#             */
-/*   Updated: 2024/01/23 06:39:09 by jules            ###   ########.fr       */
+/*   Updated: 2024/02/15 12:27:19 by jbanacze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	create_fractal(t_fractol *frctl)
 		y = 0.;
 		while (y < (double)frctl->params.s_height)
 		{
-			z = (t_complex){x, y};
+			z = (t_complex){x, frctl->params.s_height - y};
 			z = add(frctl->params.v_center, \
 					mult_scal(2. / frctl->params.zoom_f, sub(z, screen_c)));
 			nb_iter = frctl->fract_func(z, &frctl->params);

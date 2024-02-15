@@ -6,7 +6,7 @@
 /*   By: jbanacze <jbanacze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 17:38:15 by jules             #+#    #+#             */
-/*   Updated: 2024/01/23 08:44:47 by jbanacze         ###   ########.fr       */
+/*   Updated: 2024/02/15 12:46:46 by jbanacze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ t_fractol	init_fractol(int argc, char **argv)
 	frctl.fract_func = as.fract_func;
 	frctl.fract_code = as.fract_code;
 	frctl.nb_frame_mod360 = 0;
+	frctl.lock_colors = 0;
 	return (frctl);
 }

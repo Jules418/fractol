@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbanacze <jbanacze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:05:39 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 20:17:51 by jules            ###   ########.fr       */
+/*   Updated: 2024/02/15 12:40:38 by jbanacze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define F3 65472
 # define F4 65473
 # define ENTER 65293
+# define SPACE 32
 
 int		close_fractol(t_fractol *fractol);
 void	rescale(int button, int x, int y, t_fractol *fractol);

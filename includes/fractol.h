@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbanacze <jbanacze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:34:17 by jules             #+#    #+#             */
-/*   Updated: 2024/01/23 07:09:12 by jules            ###   ########.fr       */
+/*   Updated: 2024/02/15 12:42:29 by jbanacze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ typedef struct s_fractol
 	void			*mlx;
 	void			*mlx_win;
 	t_data			img;
-	int				is_img;
 	size_t			nb_frame_mod360;
 	t_params		params;
 	t_fract_func	fract_func;
 	char			fract_code;
+	int				lock_colors;
 }				t_fractol;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbanacze <jbanacze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 00:50:53 by jules             #+#    #+#             */
-/*   Updated: 2024/01/23 07:08:50 by jules            ###   ########.fr       */
+/*   Updated: 2024/02/15 12:47:35 by jbanacze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	draw_loop(t_fractol *fractol)
 	create_fractal(fractol);
 	mlx_put_image_to_window(fractol->mlx, fractol->mlx_win, \
 		fractol->img.img, 0, 0);
-	fractol->nb_frame_mod360 = (fractol->nb_frame_mod360 + 1) % 360;
+	if (!fractol->lock_colors)
+		fractol->nb_frame_mod360 = (fractol->nb_frame_mod360 + 1) % 360;
 	return (0);
 }
 

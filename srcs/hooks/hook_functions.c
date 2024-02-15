@@ -6,7 +6,7 @@
 /*   By: jbanacze <jbanacze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:57:05 by jules             #+#    #+#             */
-/*   Updated: 2024/01/23 08:39:25 by jbanacze         ###   ########.fr       */
+/*   Updated: 2024/02/15 12:41:27 by jbanacze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ int	key_handler(int keycode, t_fractol *fractol)
 		select_hotspot(keycode, fractol);
 	if (keycode == ENTER)
 		change_fractale(fractol);
+	if (keycode == SPACE)
+		fractol->lock_colors = !(fractol->lock_colors);
 	return (0);
 }

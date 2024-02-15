@@ -6,7 +6,7 @@
 /*   By: jbanacze <jbanacze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:59:13 by jules             #+#    #+#             */
-/*   Updated: 2024/01/23 08:38:42 by jbanacze         ###   ########.fr       */
+/*   Updated: 2024/02/15 12:29:08 by jbanacze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_complex	get_world_pos(int x, int y, t_fractol *fractol)
 	s_center = (t_complex){(double) fractol->params.s_width / 2., \
 			(double) fractol->params.s_height / 2.};
 	v_center = fractol->params.v_center;
-	p_mouse = (t_complex){(double) x, (double) y};
+	p_mouse = (t_complex){x, fractol->params.s_height - y};
 	return (add(v_center, \
 			mult_scal(2. / fractol->params.zoom_f, sub(p_mouse, s_center))));
 }
@@ -73,11 +73,11 @@ void	move_julia_seed(int keycode, t_fractol *fractol)
 	t_complex	displacement;
 
 	if (keycode == 'i')
-		displacement = (t_complex){0, -50};
+		displacement = (t_complex){0, 50};
 	if (keycode == 'j')
 		displacement = (t_complex){-50, 0};
 	if (keycode == 'k')
-		displacement = (t_complex){0, 50};
+		displacement = (t_complex){0, -50};
 	if (keycode == 'l')
 		displacement = (t_complex){50, 0};
 	fractol->params.julia_seed = add(fractol->params.julia_seed, \

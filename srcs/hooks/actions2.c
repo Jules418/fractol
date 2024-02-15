@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jules <jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbanacze <jbanacze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 23:08:53 by jules             #+#    #+#             */
-/*   Updated: 2024/01/22 21:07:56 by jules            ###   ########.fr       */
+/*   Updated: 2024/02/15 12:28:36 by jbanacze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	move_center(int keycode, t_fractol *fractol)
 	t_complex	displacement;
 
 	if (keycode == UP_ARROW)
-		displacement = (t_complex){0, -100};
+		displacement = (t_complex){0, 100};
 	if (keycode == LEFT_ARROW)
 		displacement = (t_complex){-100, 0};
 	if (keycode == DOWN_ARROW)
-		displacement = (t_complex){0, 100};
+		displacement = (t_complex){0, -100};
 	if (keycode == RIGHT_ARROW)
 		displacement = (t_complex){100, 0};
 	fractol->params.v_center = add(fractol->params.v_center, \
